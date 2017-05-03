@@ -1,0 +1,31 @@
+.container {
+  padding: 20px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+li {
+  font-size: 1.8em;
+}
+
+paper-input {
+  width: 300px;
+  display: inline-block;
+}
+paper-input {
+    --paper-input-container-focus-color:  purple;
+    --paper-input-container-invalid-color: red;
+    --paper-input-container-input-color: black;
+  }
+  #addSport-icon {
+    margin-right: 5px;
+  }
+
+paper-button {
+  font-size: 1.8em;
+  background-color: purple;
+  color: white;
+}
