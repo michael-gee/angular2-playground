@@ -4,20 +4,36 @@
   <h2 *ngIf="favSport">My favorite sport is {{ favSport }}</h2>
 
   <ul>
-    <li *ngFor="let sport of sports">
+    <li *ngFor="let sport of sports" id="{{ sport.name }}">
       {{ sport.name }}
+      <paper-icon-button (click)="toggleEditInput($event)" name="{{ sport.name }}" class="editSport-button" icon="app-icons:edit"></paper-icon-button>
     </li>
   </ul>
 
-  <paper-input #sportInput label="Add Sport">
-    <div slot="prefix">
-      <iron-icon id="addSport-icon" icon="app-icons:present-to-all"></iron-icon>
-    </div>
-  </paper-input>
+  <div *ngIf="!editConfigObj.currentlyEditting; else editSport">
+    <paper-input #addSportInput label="Add Sport">
+      <div slot="prefix">
+        <iron-icon id="addSport-icon" icon="app-icons:present-to-all"></iron-icon>
+      </div>
+    </paper-input>
 
-  <paper-button raised (click)="addSport(sportInput.value)">
-    Add Sport
-  </paper-button>
+    <paper-button #addSportButton id="addSport-button" raised (click)="sportsConfig('add', addSportInput.value, addSportButton.id)">
+      Add Sport
+    </paper-button>
+  </div>
 
+  <ng-template #editSport>
+    <paper-input #editSportInput label="Edit Sport">
+      <div slot="prefix">
+        <iron-icon id="addSport-icon" icon="app-icons:edit"></iron-icon>
+      </div>
+    </paper-input>
+
+    <paper-button raised #editSportButton id="editSport-button" (click)="sportsConfig('edit', editSportInput.value, editSportButton.id)">
+      Edit Sport
+    </paper-button>
+
+    <p id="edit-error" *ngIf="editConfigObj.inputError">{{ editConfigObj.inputError }}</p>
+  </ng-template>
 
 </div>

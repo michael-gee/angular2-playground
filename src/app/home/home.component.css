@@ -1,6 +1,10 @@
 .container {
-  padding: 20px;
+  padding: 10px 20px;
   width: 100%;
+}
+
+h1, h2 {
+  margin: 10px 0;
 }
 
 h2 {
@@ -8,18 +12,23 @@ h2 {
 }
 
 li {
+  display: flex;
+  align-items: center;
   font-size: 1.8em;
+  max-width: 400px;
 }
+  .editSport-button {
+    margin-left: auto;
+  }
 
 paper-input {
   width: 300px;
+  max-width: 100%;
   display: inline-block;
-}
-paper-input {
     --paper-input-container-focus-color:  purple;
     --paper-input-container-invalid-color: red;
     --paper-input-container-input-color: black;
-  }
+}
   #addSport-icon {
     margin-right: 5px;
   }
@@ -28,4 +37,9 @@ paper-button {
   font-size: 1.8em;
   background-color: purple;
   color: white;
+}
+
+#edit-error {
+  margin:15px;
+  color:red;
 }
