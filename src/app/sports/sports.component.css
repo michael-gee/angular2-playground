@@ -2,8 +2,12 @@
   width: 100%;
 }
 
-#sports {
-  padding: 10px 25px;
+#sports-list {
+  width: 55%;
+  float: left;
+  padding: 20px 0;
+  margin-left: 4%;
+  margin-right: 1%;
 }
 
 h1, h2 {
@@ -22,38 +26,100 @@ h2 {
 
 ul {
   margin-bottom: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
   display: flex;
   align-items: center;
   font-size: 1.8em;
-  max-width: 400px;
+  max-width: 100%;
+  padding: 5px;
+  z-index: 10;
 }
+  li:hover {
+    background-color: #eee;
+  }
   .editSport-button {
     margin-left: auto;
+    z-index: 50;
   }
 
 paper-input {
-  width: 300px;
-  max-width: 100%;
+  width: calc(100% - 135px);
   display: inline-block;
     --paper-input-container-focus-color:  purple;
     --paper-input-container-invalid-color: red;
     --paper-input-container-input-color: black;
 }
   #addSport-icon {
-    margin-right: 5px;
+    margin-right: 7px;
   }
 
 paper-button {
   font-size: 1.8em;
   background-color: purple;
   color: white;
-  padding: 10px 40px;
 }
+  .sportList-configButton {
+    padding: 10px 40px;
+  }
 
 .error-message {
   margin:15px;
   color:red;
 }
+
+#cancelEdit-button {
+  display: block;
+  max-width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+/* sports-deatil */
+#sports-detail {
+  position: relative;
+  width: 35%;
+  float: left;
+  background-color: #eee;
+  padding: 20px 0;
+  margin: 50px 2.5% 0 2.5%;
+  text-align: center;
+}
+  #closeDetails-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  #sports-detail h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+  }
+  #makeFav-button {
+    padding: 20px 15px;
+    margin: 15px 0 20px 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    #sports-list {
+      width: calc(100% - 50px);
+      float: none;
+      padding: 25px;
+    }
+      #sports-list h1, h2 {
+        text-align: center;
+      }
+
+
+    #sports-detail {
+      float: none;
+      margin: 0 auto;
+    }
+
+    .error-message {
+      text-align: center;
+    }
+  }

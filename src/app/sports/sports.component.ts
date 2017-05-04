@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Sport } from '../sport';
+import { Sport } from './sport';
 
 @Component({
   selector: 'app-sports',
@@ -19,6 +19,7 @@ export class SportsComponent implements OnInit {
   favSport:string = this.sports[0].name;
   inputError:string = '';
   currentlyEditting:string = '';
+  currentlySelected:string = '';
 
   @ViewChild("addSportInput") addInputText: ElementRef;
   @ViewChild("editSportInput") editInputText: ElementRef;
@@ -30,38 +31,59 @@ export class SportsComponent implements OnInit {
   }
 
   sportsConfig(method, input) {
-    if(input === undefined && method === 'add') {
-      this.inputError = "Error: Please enter a new value.";
-      return;
-    } else if(input === undefined && method === 'edit') {
+    if(input === undefined && method === 'add' ||
+       input === undefined && method === 'edit') {
       this.inputError = "Error: Please enter a new value.";
       return;
     }
 
     if(method === 'add') {
       input = this.titleCaseInput(input);
-      this.sports.push(new Sport(this.sports.length, input));
-      this.addInputText.nativeElement.value = '';
+      this.sports.push(new Sport(this.sports.length + 1, input));
+      this.addInputText.nativeElement.value = undefined;
+      this.inputError = '';
+      return;
     }else if(method === 'edit') {
       input = this.titleCaseInput(input);
-      var index = this.sports.map(function(e) { return e.name; }).indexOf(this.currentlyEditting);
-      this.sports[index].name = input;
+      this.sports[this.findSportIndex(this.currentlyEditting)].name = input;
       this.currentlyEditting = '';
+      this.inputError = '';
+      return;
     }
-
   }
 
+  //SET FAV METHOD
+  setFavSport() {
+    this.favSport = this.currentlySelected;
+  }
+
+  //TOGGLE METHODS
   toggleEditInput(method, event) {
-    if(method === 'open' && this.currentlyEditting === event.toElement.name) {
+    if(method === 'open' && this.currentlyEditting === event.target.name) {
       return;
     }else if(method === 'open' && this.currentlyEditting === '') {
-      this.currentlyEditting = event.toElement.name;
+      this.currentlyEditting = event.target.name;
       this.inputError = '';
       return;
     }else if(method === 'close') {
       this.currentlyEditting = '';
       this.inputError = '';
     }
+  }
+
+  toggleSportDetails(method, event) {
+    if(event.target.localName === "paper-icon-button"){
+      if(event.target.id === "closeDetails-button") {
+        this.currentlySelected = '';
+      }
+      return;
+    }
+    this.currentlySelected = event.target.id;
+  }
+
+  //Find array index of passed Input
+  findSportIndex(input) {
+    return this.sports.map(function(e) { return e.name; }).indexOf(input);
   }
 
   titleCaseInput(input) {

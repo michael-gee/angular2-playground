@@ -1,14 +1,14 @@
 <div class="container">
-  <div id="sports">
+  <div id="sports-list">
 
   <h1>
     {{ title }}
-    <iron-icon id="title-icon" icon="app-icons:golf-course"></iron-icon>    
+    <iron-icon id="title-icon" icon="app-icons:golf-course"></iron-icon>
   </h1>
   <h2 *ngIf="favSport">My favorite sport is {{ favSport }}</h2>
 
   <ul>
-    <li *ngFor="let sport of sports" #[sport.name] id="{{ sport.name }}">
+    <li *ngFor="let sport of sports" (click)="toggleSportDetails('open', $event)" #[sport.name] id="{{ sport.name }}">
       {{ sport.name }}
       <paper-icon-button (click)="toggleEditInput('open', $event)" name="{{ sport.name }}" class="editSport-button" icon="app-icons:edit"></paper-icon-button>
     </li>
@@ -21,7 +21,7 @@
       </div>
     </paper-input>
 
-    <paper-button raised #addSportButton (click)="sportsConfig('add', addSportInput.value)">
+    <paper-button raised #addSportButton (click)="sportsConfig('add', addSportInput.value)" class="sportList-configButton">
       Add
     </paper-button>
     <p class="error-message" *ngIf="inputError">{{ inputError }}</p>
@@ -30,18 +30,33 @@
   <ng-template #editSport>
     <paper-input #editSportInput label="Edit '{{ currentlyEditting }}'">
       <div slot="prefix">
-        <iron-icon id="addSport-icon" icon="app-icons:edit"></iron-icon>
+        <iron-icon id="editSport-icon" icon="app-icons:edit"></iron-icon>
       </div>
     </paper-input>
 
-    <paper-button raised #editSportButton (click)="sportsConfig('edit', editSportInput.value)">
+    <paper-button raised #editSportButton (click)="sportsConfig('edit', editSportInput.value)" class="sportList-configButton">
       Edit
     </paper-button>
 
-    <paper-icon-button (click)="toggleEditInput('close')" icon="app-icons:close"></paper-icon-button>
+    <div>
+      <paper-button raised (click)="toggleEditInput('close')" id="cancelEdit-button">
+        Cancel Edit
+        <iron-icon icon="app-icons:close"></iron-icon>
+      </paper-button>
+    </div>
 
     <p class="error-message" *ngIf="inputError">{{ inputError }}</p>
   </ng-template>
 
-</div><!-- SPORTS DIV -->
+</div><!-- SPORTS-LIST DIV -->
+
+  <div *ngIf="currentlySelected" id="sports-detail">
+    <paper-icon-button id="closeDetails-button" (click)="toggleSportDetails('close', $event)" icon="app-icons:close"></paper-icon-button>
+    <h2>{{ currentlySelected }}</h2>
+    <p>id: {{ sports[this.findSportIndex(this.currentlySelected)].id }}</p>
+    <paper-button raised (click)="setFavSport()" id="makeFav-button">
+      Fav Sport
+      <iron-icon icon="app-icons:star"></iron-icon>
+    </paper-button>
+  </div>
 </div> <!-- CONTAINER DIV -->
