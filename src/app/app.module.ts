@@ -8,15 +8,15 @@ import { PolymerModule } from '@codebakery/origami';
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { SportsComponent } from './sports/sports.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,

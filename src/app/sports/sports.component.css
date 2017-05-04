@@ -1,14 +1,27 @@
 .container {
-  padding: 10px 20px;
   width: 100%;
+}
+
+#sports {
+  padding: 10px 25px;
 }
 
 h1, h2 {
   margin: 10px 0;
 }
 
+#title-icon {
+  width: 35px;
+  height: 35px;
+  padding-bottom: 5px;
+}
+
 h2 {
   font-size: 2em;
+}
+
+ul {
+  margin-bottom: 0;
 }
 
 li {
@@ -37,9 +50,10 @@ paper-button {
   font-size: 1.8em;
   background-color: purple;
   color: white;
+  padding: 10px 40px;
 }
 
-#edit-error {
+.error-message {
   margin:15px;
   color:red;
 }
