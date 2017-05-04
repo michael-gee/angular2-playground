@@ -7,8 +7,6 @@ import { Sport } from './sport';
   styleUrls: ['./sports.component.css']
 })
 export class SportsComponent implements OnInit {
-
-  title:string = 'Sports';
   sports:Array<any> = [
     new Sport(1, 'Basketball'),
     new Sport(2, 'Football'),
@@ -16,7 +14,10 @@ export class SportsComponent implements OnInit {
     new Sport(4, 'Soccer'),
     new Sport(5, 'Baseball')
   ];
+
+  title:string = 'Sports';
   favSport:string = this.sports[0].name;
+
   inputError:string = '';
   currentlyEditting:string = '';
   currentlySelected:string = '';
