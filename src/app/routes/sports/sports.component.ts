@@ -1,19 +1,21 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Sport } from './sport';
 
+const SPORTS:Sport[] = [
+  new Sport(1, 'Basketball'),
+  new Sport(2, 'Football'),
+  new Sport(3, 'Hockey'),
+  new Sport(4, 'Soccer'),
+  new Sport(5, 'Baseball')
+];
+
 @Component({
   selector: 'app-sports',
   templateUrl: './sports.component.html',
   styleUrls: ['./sports.component.css']
 })
 export class SportsComponent implements OnInit {
-  sports:Array<any> = [
-    new Sport(1, 'Basketball'),
-    new Sport(2, 'Football'),
-    new Sport(3, 'Hockey'),
-    new Sport(4, 'Soccer'),
-    new Sport(5, 'Baseball')
-  ];
+  sports = SPORTS;
 
   title:string = 'Sports';
   favSport:string = this.sports[0].name;
