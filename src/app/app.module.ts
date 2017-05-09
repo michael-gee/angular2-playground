@@ -19,7 +19,10 @@ import { PlaygroundComponent } from './routes/playground/playground.component';
 @NgModule({
   declarations: [
     AppComponent,
+    //Layout Declarations
     HeaderComponent,
+    FooterComponent,
+    //Route Components
     SportsComponent,
     PlaygroundComponent
   ],
