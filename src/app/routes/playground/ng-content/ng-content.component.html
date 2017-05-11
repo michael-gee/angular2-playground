@@ -1,0 +1,7 @@
+<h2>ng-content</h2>
+
+<p>By default, If you include HTML inside your custom component tag, it will not be registered and the custom component will be empty by default. To let Angular know that you want into include some HTML inside the custom component tags, you can use <strong>< ng-content >< /ng-content ></strong> and this will allow you to include HTML inside your custom component where it is specified.</p>
+
+<br>
+
+<p>To access this content inside your custom component from the child component, <strong>@ViewChild() will not work.</strong> You can use @ViewChild() in the parent component because it is apart of the view but to access the content inside the custom component in the child component you must use <strong>@ContentChild()</strong></p>

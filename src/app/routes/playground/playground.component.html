@@ -3,10 +3,28 @@
   <div class="content">
     <h1>Playground</h1>
 
-    <h2>Two Way Binding</h2>
+    <section>
+      <two-way-binding></two-way-binding>
+    </section>
 
-    <p>Hello <span *ngIf="!name">{{ intro }}</span>{{ name }}!</p>
-    <paper-input [(ngModel)]="name" label="Type Name Here"></paper-input>
-  </div>
+    <section>
+      <component-communication></component-communication>
+    </section>
+
+    <section>
+      <view-encapsulation></view-encapsulation>
+    </section>
+
+    <section>
+      <local-references></local-references>
+    </section>
+
+    <section>
+      <app-ng-content></app-ng-content>
+    </section>
+
+    <section>
+      <component-lifecycle></component-lifecycle>
+    </section>
 
 </div>

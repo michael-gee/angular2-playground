@@ -1,31 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Sport } from './sport';
-
-const SPORTS:Sport[] = [
-  new Sport(1, 'Basketball'),
-  new Sport(2, 'Football'),
-  new Sport(3, 'Hockey'),
-  new Sport(4, 'Soccer'),
-  new Sport(5, 'Baseball')
-];
+import { SPORTS } from './mock-sports';
 
 @Component({
   selector: 'app-sports',
-  templateUrl: './sports.component.html',
-  styleUrls: ['./sports.component.css']
+  templateUrl: './sports.component.html'
 })
 export class SportsComponent implements OnInit {
   sports = SPORTS;
 
-  title:string = 'Sports';
-  favSport:string = this.sports[0].name;
-
-  inputError:string = '';
-  currentlyEditting:string = '';
-  currentlySelected:string = '';
-
-  @ViewChild("addSportInput") addInputText: ElementRef;
-  @ViewChild("editSportInput") editInputText: ElementRef;
+  favSport:Sport = this.sports[0];
+  currentlySelected:Sport = null;
 
   constructor() {
   }
@@ -33,66 +18,19 @@ export class SportsComponent implements OnInit {
   ngOnInit() {
   }
 
-  sportsConfig(method, input) {
-    if(input === undefined && method === 'add' ||
-       input === undefined && method === 'edit') {
-      this.inputError = "Error: Please enter a new value.";
-      return;
-    }
-
-    if(method === 'add') {
-      input = this.titleCaseInput(input);
-      this.sports.push(new Sport(this.sports.length + 1, input));
-      this.addInputText.nativeElement.value = undefined;
-      this.inputError = '';
-      return;
-    }else if(method === 'edit') {
-      input = this.titleCaseInput(input);
-      this.sports[this.findSportIndex(this.currentlyEditting)].name = input;
-      this.currentlyEditting = '';
-      this.inputError = '';
-      return;
-    }
-  }
-
   //SET FAV METHOD
   setFavSport() {
     this.favSport = this.currentlySelected;
   }
 
-  //TOGGLE METHODS
-  toggleEditInput(method, event) {
-    if(method === 'open' && this.currentlyEditting === event.target.name) {
-      return;
-    }else if(method === 'open' && this.currentlyEditting === '') {
-      this.currentlyEditting = event.target.name;
-      this.inputError = '';
-      return;
-    }else if(method === 'close') {
-      this.currentlyEditting = '';
-      this.inputError = '';
-    }
-  }
-
-  toggleSportDetails(method, event) {
-    if(event.target.localName === "paper-icon-button"){
-      if(event.target.id === "closeDetails-button") {
-        this.currentlySelected = '';
+  toggleSportDetail(e) {
+    if(e.event.target.localName === "paper-icon-button"){
+      if(e.event.target.id === "closeDetails-button") {
+        this.currentlySelected = null;
       }
       return;
     }
-    this.currentlySelected = event.target.id;
-  }
-
-  //Find array index of passed Input
-  findSportIndex(input) {
-    return this.sports.map(function(e) { return e.name; }).indexOf(input);
-  }
-
-  titleCaseInput(input) {
-    return input.toLowerCase().split(' ').map(function(word) {
-      return (word.charAt(0).toUpperCase() + word.slice(1));
-    }).join(' ');
+    this.currentlySelected = e.sport;
   }
 
 }

@@ -1,0 +1,8 @@
+<h2>Two Way Binding</h2>
+<p id="intro"><strong>[(ngModel)]</strong>="propertyName"</p>
+
+<p>Hello
+  <span id="userInputText">
+    <span *ngIf="!name">{{ intro }}</span>{{ name }}!</span></p>
+
+<paper-input [(ngModel)]="name" label="Type Name Here"></paper-input>

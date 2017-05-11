@@ -1,0 +1,16 @@
+<h2>Local References</h2>
+
+<div class="centered-content">
+  <p id="localRefParagaph" #localRef>
+    You can use markers in your HTML template (called <strong>Local References</strong>) that you can use to obtain and use the specific element that can be used anywhere in the HTML template. You can use these local references in <strong>any HTML element</strong> by placing a # followed by the name of the reference inside the opening tag of the element.
+  </p>
+  
+  <p>Example:</p>
+  <p><strong>< p #localRefName >< /p ></strong></p>
+  <p>Once you place a local reference inside an element, you now have access to use the element and all of its attributes inside of the HTML template. You can see this in action by pressing the button and viewing our local referenced paragraph in our template in the browser console.</p>
+  <p>If you want access to a method <strong>before you call a method in the HTML template</strong> you can use the <strong>@ViewChild</strong> decorator.</p>
+
+  <p #localRefFromViewChild>This element can be accessed in the TS file and manipulated whenever we want to.</p>
+
+  <paper-button raised (click)="viewLocalRef(localRef)">Get Local Ref</paper-button>
+</div>

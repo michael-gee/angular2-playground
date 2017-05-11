@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     <div id="footer-container">
 
       <p id="footer-text">
-        Copyright © 2017 Cegmag Solutions Inc. All rights reserved.
+        Copyright © 2017 Michael Gee - All rights reserved.
       </p>
 
       <div id="footer-links">

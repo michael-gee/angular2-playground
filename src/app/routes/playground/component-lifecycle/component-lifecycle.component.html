@@ -1,0 +1,38 @@
+<h2>Component Lifecylce</h2>
+
+<p>When an Angular component is initiated, it goes through some lifecycle hooks, that we can hook into and add our own functionality when these hooks are triggered.</p>
+
+<ul>
+  <li>
+    <p><strong>ngOnChanges</strong> -</p>
+    <p>Called after a bound input property changes, whenever a bound input properties (like @Input) changes.</p>
+  </li>
+  <li>
+    <p><strong>ngOnInit</strong> -</p>
+    <p>Called once the component is initilized (has not been added to the DOM yet but Angular is finished with initilization so we can access properties/methods), runs after the constructor.</p>
+  </li>
+  <li>
+    <p><strong>ngDoCheck</strong> -</p>
+    <p>Called during every change detection run, this hook runs whenever an event is triggered and will check to see whether something has changed within the template so it will be run multiple times.</p>
+  </li>
+  <li>
+    <p><strong>ngAfterContentInit</strong> -</p>
+    <p>This is called whenever the content that is projected by a ng-content has been initilized.</p>
+  </li>
+  <li>
+    <p><strong>ngAfterContentChecked</strong> -</p>
+    <p>Called every time the projected content has been checked.</p>
+  </li>
+  <li>
+    <p><strong>ngAfterViewInit</strong> -</p>
+    <p>Called after the component's view (and child views) has been initialized.</p>
+  </li>
+  <li>
+    <p><strong>ngAfterViewChecked</strong> -</p>
+    <p>Called every time the view (and child views) has been checked</p>
+  </li>
+  <li>
+    <p><strong>ngOnDestroy</strong> -</p>
+    <p>Called once a component is destroyed, like if you set *ngIf on one and it is set to false (therefore it removes it from the DOM) ngOnDestroy() is called.</p>
+  </li>
+</ul>

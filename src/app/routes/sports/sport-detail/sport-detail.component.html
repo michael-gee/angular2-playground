@@ -1,0 +1,12 @@
+<!-- SPORTS DETAIL -->
+<div *ngIf="currentlySelected" id="sports-detail">
+
+  <paper-icon-button id="closeDetails-button" (click)="fireSportDetailEvent('close', $event)" icon="app-icons:close"></paper-icon-button>
+  <h2>{{ currentlySelected.name }}</h2>
+  <p>id: {{ currentlySelected.id }}</p>
+  <paper-button raised (click)="setNewFavSport()" id="makeFav-button">
+    Fav Sport
+    <iron-icon style="margin-left:5px;" icon="app-icons:star"></iron-icon>
+  </paper-button>
+
+</div>

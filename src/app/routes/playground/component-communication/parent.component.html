@@ -1,0 +1,10 @@
+<div class="centered-content">
+  <h2>Communication Between 2 Components</h2>
+  <p>Property Binding from Parent to Child - <strong>@Input()</strong></p>
+  <p>Event Binding from Child to Parent - <strong>@Output()</strong></p>
+
+  <child-component
+    [name]="name"
+    (btnClick)="toggleNameReverse($event)">
+  </child-component>
+</div>
