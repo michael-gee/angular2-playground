@@ -23,7 +23,7 @@ h2 {
 }
 
 p {
-  margin: 0;
+  margin: 10px 0;
   font-size: 1.8em;
 }
 
@@ -43,4 +43,8 @@ paper-button {
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.indent {
+  padding-left: 25px;
 }

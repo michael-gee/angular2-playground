@@ -6,7 +6,7 @@
   margin-right: 1%;
 }
 
-h1, h2 {
+h1, h3 {
   margin: 10px 0;
 }
 
@@ -16,7 +16,7 @@ h1, h2 {
   padding-bottom: 5px;
 }
 
-h2 {
+h3 {
   font-size: 2em;
 }
 

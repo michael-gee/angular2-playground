@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { LoggingService } from '../../logging.service';
+
 @Component({
   selector: 'app-playground',
   templateUrl: './playground.component.html',
@@ -8,9 +10,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggingService:LoggingService) { }
 
   ngOnInit() {
+    this.loggingService.helloWorld();
   }
 
 }

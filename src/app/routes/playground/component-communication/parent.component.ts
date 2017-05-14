@@ -4,10 +4,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'component-communication',
   templateUrl: './parent.component.html',
   styles: [`
-    p {
-      margin: 5px 0;
-    }
-
     @media screen and (max-width: 768px) {
       div {
         display: block;

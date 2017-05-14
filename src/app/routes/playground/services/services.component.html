@@ -1,0 +1,32 @@
+<h2>Services</h2>
+
+<p><strong>D.R.Y. - Don't Repeat Yourself</strong>. Services are used when you have functionality that you want to implement in multiple components. Instead of including the code in every component you need it in and having to go to each component if you need to change something, you can create a <strong>service</strong>.</p>
+
+<p class="indent">With Components and Directives you create them with a Class Decorator then export the class, but with services it is just a TypeScript class that can be injected (with <strong>dependency injection</strong>) into multiple components or used as central business logic (like authentication). Services can also help when you need to <strong>communicate between multiple components</strong>.</p>
+
+<p>After we create/define our service in our .service.ts file we use Angular's <strong>dependency injection</strong> methods to use our services in our application. The dependency injection <strong>injects an instance of our service class</strong> into a component we are working in to make it available to the component automatically.</p>
+
+<p class="indent">We must first <strong>import</strong> our class into the component we want to use our service into. Then, to inform Angular that we need to inject the instance of the class, we configure the component's <strong>constructor()</strong> method. Then finally, we need to <strong>provide the service</strong> (tell Angular how to create it) by addind the <strong>providers: [ ServiceClassName ]</strong> property inside the @Component class decorator inside the component. </p>
+
+<div class="centered-content">
+  <paper-button raised (click)="displayServiceMessage('Serive Message!')">Display Service Message</paper-button>
+  <p>{{ displayMessage }}</p>
+</div>
+
+<hr>
+
+<h3>Hierarchical Injector</h3>
+
+<p>When you provide a service somewhere in our app, the Angular framework creates the instance of the service not only in the component where it's specified, but <strong>all of it's children components</strong> get the <strong>same instance</strong> of the service.</p>
+
+<p class="indent">The highest possible level we can include our service is the <strong>AppModule</strong> which will make it to where the same instance of a Servidce is available <strong>application-wide</strong>. When we include our Service in the <strong>AppComponet</strong> the same instance of the service is available for all COMPONENTS, but <strong>not for other Services</strong> (depending on where you specify your services).</p>
+<p class="indent">When you want to have <strong>the same instance of a service</strong> you include the service in a <strong>parent component</strong>, you then have access to the same instance of the service in all of the parent component's children.</p>
+<p class="indent">The way to include the service in a child component and it have the same instance as the parent is to do all the same things, <strong>except do not include it in the providers: property of the component</strong>. You still import the service and configure it it the component's constructor method.</p>
+
+<hr>
+
+<p>We can also <strong>inject services instances inside other services</strong>. You can use this by including the <strong>@Injectable()</strong> class decorator inside your service which is imported by @angular/core</p>
+
+<p class="indent">You include the @Injectable() class decorator in the <strong>service that is receiving the other service.</strong></p>
+
+<p>You then configure the service's constructor() method to include the instance from the other service just like we would in a component.</p>

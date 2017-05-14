@@ -12,22 +12,25 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header.component';
 import { FooterComponent } from './layout/footer.component';
 //Route Components
+//Sports Components
 import { SportsComponent } from './routes/sports/sports.component';
+  import { SportDetailComponent } from './routes/sports/sport-detail/sport-detail.component';
+  import { SportListComponent } from './routes/sports/sport-list/sport-list.component';
+//Playground Components
 import { PlaygroundComponent } from './routes/playground/playground.component';
   import { TwoWayBindingComponent } from './routes/playground/two-way-binding/two-way-binding.component';
   import { ViewEncapsulationComponent } from './routes/playground/view-encapsulation/view-encapsulation.component';
   import { LocalReferencesComponent } from './routes/playground/local-references/local-references.component';
   import { NgContentComponent } from './routes/playground/ng-content/ng-content.component';
   import { ComponentLifecycleComponent } from './routes/playground/component-lifecycle/component-lifecycle.component';
-  //Component Communication
-  import { ParentComponent } from './routes/playground/component-communication/parent.component';
+    import { ParentComponent } from './routes/playground/component-communication/parent.component';
     import { ChildComponent } from './routes/playground/component-communication/child/child.component';
-import { ChallengeComponent } from './routes/challenge/challenge.component';
-  import { GameControlComponent } from './routes/challenge/game-control/game-control.component';
-    import { OddComponent } from './routes/challenge/odd/odd.component';
-    import { EvenComponent } from './routes/challenge/even/even.component';
-import { SportDetailComponent } from './routes/sports/sport-detail/sport-detail.component';
-import { SportListComponent } from './routes/sports/sport-list/sport-list.component';
+  import { DirectivesComponent } from './routes/playground/directives/directives.component';
+import { ServicesComponent } from './routes/playground/services/services.component';
+//Playground Directives
+import { BasicDirective } from './routes/playground/directives/attribute-directives/basic.directive';
+import { BestPraciceDirective } from './routes/playground/directives/attribute-directives/best-pracice.directive';
+import { StructuralDirective } from './routes/playground/directives/structural-directives/structural.directive';
 
 @NgModule({
   declarations: [
@@ -37,21 +40,24 @@ import { SportListComponent } from './routes/sports/sport-list/sport-list.compon
     FooterComponent,
     //Route Components
     SportsComponent,
+      SportDetailComponent,
+      SportListComponent,
+    //Playground Components
     PlaygroundComponent,
       TwoWayBindingComponent,
       ViewEncapsulationComponent,
       LocalReferencesComponent,
       NgContentComponent,
       ComponentLifecycleComponent,
-      //Component Communication
       ParentComponent,
         ChildComponent,
-      ChallengeComponent,
-        GameControlComponent,
-          OddComponent,
-          EvenComponent,
-          SportDetailComponent,
-          SportListComponent
+        DirectivesComponent,
+      ServicesComponent,
+      //Playground Directives
+      //Like components, directives must also be included in the declarations of the app.module
+      BasicDirective, //Attribute Directive
+      BestPraciceDirective, //Attribute Directive
+      StructuralDirective
   ],
   imports: [
     BrowserModule,
@@ -63,6 +69,7 @@ import { SportListComponent } from './routes/sports/sport-list/sport-list.compon
     PaperElementsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  //Include services instances here that you want to be available within the ENTIRE application 
   providers: [],
   bootstrap: [AppComponent]
 })

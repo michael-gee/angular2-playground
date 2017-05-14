@@ -1,0 +1,41 @@
+<h2>Directives</h2>
+
+<p>Directives are markers on a DOM element that tells the Angular HTML Compiler to attach a specified behavior to that DOM element.</p>
+<p><strong>Structural Directive</strong> - directives that are began with a <strong>*</strong> like *ngIf to indicate that this directive directly manipulates the DOM whether it is adding or removing elements or both.</p>
+<p><strong>Attribute Directive</strong> - directives that look like a normal HTML attribute that only change the element they were placed on.</p>
+
+<p>View the Contents of the basic-directive folder that shows how to create a basic custom directive with the @Directive class decorator.</p>
+
+<p>Like components, we must include directives in our app.module <strong>declarations</strong> to be used within our app.</p>
+
+<hr>
+
+<h3>Basic Custom Attribute Directive:</h3>
+<p myBasicDirective>I am the HTML element that implements our <strong>basic</strong> custom directive!</p>
+
+<p>Using this method (basic example - <strong>directly through ElementRef</strong>) is <strong>not a best practice</strong> because accessing the DOM directly it can create problems when using Service workers and other things.</p>
+
+<h3>Better Custom Attribute Directive using Renderer(2):</h3>
+<!-- Remember that you have to put quotes inside of quotes to pass the string correctly to the busincess logic with directives -->
+<p myBestPraciceDirective [defaultColor]="'purple'" [highlightColor]="'yellow'">I am the HTML element that implements our <strong>best practice</strong> custom directive!</p>
+<p>Manipulating elements through the Renderer(2) is best practice because you are not accessing the DOM directly and will not cause the unexpected problems from Service workers (or envirnments where you do not have access to the DOM), ect.</p>
+
+<p>When you just want to bind to a <strong>property of the element</strong> which you attach the directive to, instead of using the renderer you can just use <strong>@HostBinding</strong>. This is where you can gain access to the host's html properties and styles like you would through accessing the DOM normal JavaScript</p>
+
+<hr>
+
+<h3>Custom Structural Directives</h3>
+
+<p>Including the <strong>*</strong> in structural directives is important because it dynamically generates a <strong>< ng-template ></strong> tag with the directive that allows you to structure and manipulate the DOM.
+</p>
+
+<p><strong>ng-template</strong> is a template that is not rendered, but allows us to define a template for Angular to decide to use once it determines if the template needs to be rendered.</p>
+
+<p>To create a <strong>custom structural directive</strong> you start the exact same way as you would with attribute directives except with you start by setting a <strong>@Input setter method</strong>. Although you set a setter method, you are still declaring a <strong>property</strong>. It is just a setter of the property which is a method that gets executed whenever the property (the condition we pass) changes.</p>
+
+<p *displayXTimes="5">Display me 5 times!</p>
+
+<hr>
+
+<h3>ng-switch</h3>
+<p>If you feel you are using too many *ngIf directives, use <strong>*ngSwitch</strong></p>
