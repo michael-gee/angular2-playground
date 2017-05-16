@@ -1,0 +1,14 @@
+<app-toolbar id="main-toolbar">
+  <div main-title>
+    Angular Playground
+    <iron-icon icon="app-icons:school"></iron-icon>
+  </div>
+</app-toolbar>
+
+<app-toolbar id="secondary-toolbar">
+  <paper-tabs selected="{{ currentLocation }}">
+    <paper-tab routerLink="/">Home</paper-tab>
+    <paper-tab routerLink="/playground">Playground</paper-tab>
+    <paper-tab routerLink="/sports-demo">Demo</paper-tab>
+  </paper-tabs>
+</app-toolbar>

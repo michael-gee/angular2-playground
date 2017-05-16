@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 //We must import our Service Class to be able to use in our component
-import { LoggingService } from '../../../logging.service';
+import { LoggingService } from '../../../@services/logging.service';
 
 @Component({
   selector: 'services',
   templateUrl: './services.component.html',
-  styles: [`
-    h3 {
-      font-size: 2em;
-    }
-  `],
   //Since we are using the Service in a CHILD COMPONENT, we will have an entirely new instance of our service in this component.
   //To make it to where we are using the same instance as the parent component, we would delete the providers: property
   providers: [ LoggingService ]

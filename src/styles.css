@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* HTML, BODY */
 html {
   height: 100%;
 }
@@ -12,6 +13,7 @@ body {
   position:relative;
 }
 
+/* HEADINGS */
 h1 {
   font-size: 3.2em;
 }
@@ -19,12 +21,22 @@ h1 {
 h2 {
   font-size: 2.5em;
   text-align: center;
-  margin: 10px 0;
+  margin: 25px 0;
 }
 
+h3 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* CONTENT */
 p {
   margin: 10px 0;
   font-size: 1.8em;
+}
+
+hr {
+  margin: 25px 0;
 }
 
 paper-input {

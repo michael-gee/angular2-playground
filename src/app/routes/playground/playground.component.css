@@ -8,16 +8,12 @@
   padding: 25px;
 }
 
-p {
-  color: blue;
-}
-
 section {
   width: 60%;
   margin: 0 auto;
   border: 1px solid purple;
-  padding: 2%;
-  margin-top: 20px;
+  padding: 0 2%;
+  margin-top: 2%;
 }
 
 @media screen and (max-width: 960px) {

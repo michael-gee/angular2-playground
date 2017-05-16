@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { LoggingService } from '../../logging.service';
+import { LoggingService } from '../../@services/logging.service';
 
 @Component({
   selector: 'app-playground',

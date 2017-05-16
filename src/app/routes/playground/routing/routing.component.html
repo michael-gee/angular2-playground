@@ -1,0 +1,18 @@
+<h2>Routing</h2>
+
+  <h3>app.module.ts</h3>
+
+  <p>To start with routing, we begin in the <strong>app.module.ts</strong> file to import and configure our routes.</p>
+    <p class="indent">We start by importing the <strong>Routes, RouterModule</strong> from <strong>@angular/router</strong>.</p>
+    <p class="indent">After we import <strong>Routes</strong>, we now have access to the Routes Type which we can use when we start creating our routes. We creats an <strong>appRoutes const</strong> (still in the app.module.ts file) and make it an array with the array items being of type Routes.</p>
+    <p class="indent">We can now fill out this array with our routes, which will be individual objects giving information that will point to the route.</p>
+    <p class="indent"><strong> &#123; path: 'routing', component: RoutingComponent &#125; </strong></p>
+    <p class="indent">As you can see we give the object a <strong>path</strong> property - which will be the location of the route - www.mywebsite.com/<strong>routing</strong>. This is followed by the component that you want displayed when the user navigates to this route.</p>
+
+  <hr>
+
+  <h3>Route Navigation</h3>
+
+  <p>Instead of using < a > tags to navigate through your application, (a link tags refresh your webpage every time you click one) Angular provides the <strong>routerLink</strong> attribute which you can apply on <strong>any HTML element</strong> and you provide the desired destination and when clicked, the route will change to the component you specified in the app.module.ts file.</p>
+
+  <p routerLink="/">Example - Click me to go to the home page.</p>
